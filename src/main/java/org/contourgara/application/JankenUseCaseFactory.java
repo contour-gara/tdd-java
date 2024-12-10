@@ -15,7 +15,7 @@ public class JankenUseCaseFactory {
                         String.format("Select a language from the list. %s: ", Language.getSupportedLanguageOnDisplayName())
                 )
         )) {
-            case JAPANESE -> new JankenUseCaseByJp();
+            case JAPANESE -> new JankenUseCaseByJp(console);
         };
     }
 }
