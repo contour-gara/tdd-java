@@ -14,7 +14,7 @@ class HogeHogeTest {
     String actual = sut.hello();
 
     // assert
-    String expected = "HogeHoge";
+    String expected = "Hello";
     assertThat(actual).isEqualTo(expected);
   }
 }
