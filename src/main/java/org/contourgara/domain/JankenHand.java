@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum JankenHand {
-    ROCK("グー") {
+    ROCK("グー", "Rock") {
         @Override
         public JankenResult executeJanken(JankenHand opponentHand) {
             return switch (opponentHand) {
@@ -17,7 +17,7 @@ public enum JankenHand {
         }
     },
 
-    PAPER("パー") {
+    PAPER("パー", "Paper") {
         @Override
         public JankenResult executeJanken(JankenHand opponentHand) {
             return switch (opponentHand) {
@@ -28,7 +28,7 @@ public enum JankenHand {
         }
     },
 
-    SCISSORS("チョキ") {
+    SCISSORS("チョキ", "Scissors") {
         @Override
         public JankenResult executeJanken(JankenHand opponentHand) {
             return switch (opponentHand) {
@@ -40,6 +40,7 @@ public enum JankenHand {
     };
 
     private final String japanese;
+    private final String english;
 
     public abstract JankenResult executeJanken(JankenHand opponentHand);
 
@@ -53,4 +54,16 @@ public enum JankenHand {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(String.format("%s は存在しない手です。", input)));
     }
+
+    public static List<String> getAllHandsOnEnglish() {
+        return Arrays.stream(values()).map(hand -> hand.english).toList();
+    }
+
+    public static JankenHand getHandByEnglish(String input) {
+        return Arrays.stream(values())
+                .filter(type -> type.english.equals(input))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(String.format("%s is not exist.", input)));
+    }
+
 }

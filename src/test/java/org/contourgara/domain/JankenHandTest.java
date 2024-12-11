@@ -133,4 +133,32 @@ class JankenHandTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("存在しない手 は存在しない手です。");
     }
+
+    @Test
+    void 英語のすべての手を取得できる() {
+        // execute
+        List<String> actual = JankenHand.getAllHandsOnEnglish();
+
+        // assert
+        List<String> expected = List.of("Rock", "Paper", "Scissors");
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void 英語の手からインスタンスを取得できる() {
+        // execute
+        JankenHand actual = JankenHand.getHandByEnglish("Rock");
+
+        // assert
+        JankenHand expected = JankenHand.ROCK;
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void 存在しない英語の手からインスタンスを取得しようとした場合例外が返る() {
+        // execute & assert
+        assertThatThrownBy(() -> JankenHand.getHandByEnglish("存在しない手"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("存在しない手 is not exist.");
+    }
 }

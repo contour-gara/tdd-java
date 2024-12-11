@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum Language {
-    JAPANESE("日本語");
+    JAPANESE("日本語"),
+    ENGLISH("English"),;
 
      private final String displayName;
 

@@ -33,4 +33,16 @@ class JankenUseCaseFactoryTest {
         // assert
         assertThat(actual).isInstanceOf(JankenUseCaseByJp.class);
     }
+
+    @Test
+    void 英語用のクラスを生成できる() {
+        // set up
+        doReturn("English").when(console).readLine(anyString());
+
+        // execute
+        JankenUseCase actual = sut.create();
+
+        // assert
+        assertThat(actual).isInstanceOf(JankenUseCaseByEn.class);
+    }
 }

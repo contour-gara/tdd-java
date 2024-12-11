@@ -16,6 +16,7 @@ public class JankenUseCaseFactory {
                 )
         )) {
             case JAPANESE -> new JankenUseCaseByJp(console);
+            case ENGLISH -> new JankenUseCaseByEn(console);
         };
     }
 }

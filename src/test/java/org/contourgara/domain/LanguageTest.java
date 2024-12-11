@@ -12,7 +12,7 @@ class LanguageTest {
         List<String> actual = Language.getSupportedLanguageOnDisplayName();
 
         // assert
-        List<String> expected = List.of("日本語");
+        List<String> expected = List.of("日本語", "English");
         assertThat(actual).isEqualTo(expected);
     }
 
