@@ -4,11 +4,18 @@ public enum Language {
     JAPANESE("日本語"),
     ENGLISH("英語");
 
-    Language(String 日本語) {
 
+    private String name;
+
+    Language(String name) {
+        this.name = name;
     }
 
-    private String language;
+    public String getName() {
+        return name;
+    }
 
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }

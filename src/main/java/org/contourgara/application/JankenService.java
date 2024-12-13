@@ -2,9 +2,31 @@ package org.contourgara.application;
 
 import org.contourgara.domain.JankenHand;
 import org.contourgara.domain.JankenResult;
+import org.contourgara.domain.Language;
+
+import java.util.Scanner;
 
 public class JankenService {
-
+    public void execute(Language language) {
+        if (language.equals(Language.JAPANESE)) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("プレイヤー1の手を入力してください");
+            String player1 = sc.nextLine();
+            System.out.println("プレイヤー2の手を入力してください");
+            String player2 = sc.nextLine();
+            getJankenResult(player1, player2);
+            sc.close();
+        }
+        else if (language.equals(Language.ENGLISH)) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("enter your hand1");
+            String player1 = sc.nextLine();
+            System.out.println("enter your hand2");
+            String player2 = sc.nextLine();
+            System.out.println(getJankenResult(player1, player2));
+            sc.close();
+        }
+    }
 
 
     public JankenResult getJankenResult(String player1, String player2) {

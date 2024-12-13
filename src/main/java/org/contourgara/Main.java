@@ -2,6 +2,7 @@ package org.contourgara;
 
 import org.contourgara.application.JankenService;
 import org.contourgara.domain.JankenResult;
+import org.contourgara.domain.Language;
 
 import java.util.Scanner;
 
@@ -12,15 +13,17 @@ public class Main {
         System.out.println("言語を選択してください。");
         String inputLanguage = sc.nextLine(); // 日本語or英語
 
-        System.out.println("プレイヤー1の手を入力してください");
-        String player1 = sc.nextLine();
-        System.out.println("プレイヤー2の手を入力してください");
-        String player2 = sc.nextLine();
-
-        JankenResult player1Result = service.getJankenResult(player1, player2);
-
-        System.out.println(player1Result.name());
-        sc.close();
+        Language language = Language.valueOf(inputLanguage);
+//        System.out.println(language);
+//        System.out.println("プレイヤー1の手を入力してください");
+//        String player1 = sc.nextLine();
+//        System.out.println("プレイヤー2の手を入力してください");
+//        String player2 = sc.nextLine();
+//
+//        JankenResult player1Result = service.getJankenResult(player1, player2);
+//
+//        System.out.println(player1Result.name())
+        service.execute(language);
     }
 
 
